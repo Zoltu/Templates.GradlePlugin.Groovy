@@ -1,0 +1,23 @@
+plugins {
+	id 'com.zoltu.git-versioning' version '2.0.1'
+	id 'com.zoltu.simple-gradle-plugin-publisher' version '1.0.4'
+}
+
+apply plugin: 'groovy'
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+}
+
+group 'magic_group_name_magic'
+
+simpleGradlePluginPublishConfiguration {
+	gradlePublishKey = System.getenv('GRADLE_PUBLISH_KEY')
+	gradlePublishSecret = System.getenv('GRADLE_PUBLISH_SECRET')
+	vcsUrl = 'https://github.com/magic_github_owner_magic/magic_github_repo_magic'
+	id = 'magic_group_name_magic.magic_plugin_name_magic'
+	displayName = 'magic_plugin_name_magic'
+	description = 'magic_description_magic'
+	tags = ['']
+}
